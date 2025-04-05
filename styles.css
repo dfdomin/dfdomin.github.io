@@ -1,0 +1,166 @@
+ /* ------------- RESET BÁSICO ------------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* ------------- GENERAL ------------- */
+    body {
+      font-family: sans-serif;
+      background: linear-gradient(to bottom, #ffffff 0%, #f2f2f2 100%);
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    a {
+      color: #333;
+      text-decoration: none;
+      transition: color 0.3s ease; /* Animación básica en hover */
+    }
+    a:hover {
+      color: #b5651d; /* color marrón (similar a 'burlywood') */
+    }
+
+    /* ------------- SALTAR AL CONTENIDO PRINCIPAL (ACCESIBILIDAD) ------------- */
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: -999px;
+    }
+    .skip-link:focus {
+      position: static;
+      background-color: #ffeb3b;
+      padding: 5px;
+      outline: 2px solid #000;
+      z-index: 999;
+    }
+
+    /* ------------- ENCABEZADO/NAVEGACIÓN (USABILIDAD) ------------- */
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .main-menu {
+      background-color: burlywood;  /* estilo evocando el “menú” del proyecto */
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+    .main-menu a {
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .main-menu a:hover {
+      color: brown; /* Animación en hover */
+    }
+
+    /* ------------- SECCIONES ------------- */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .section {
+      margin-bottom: 30px;
+    }
+
+    /* ------------- TARJETAS DE PROYECTOS ------------- */
+    .project-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .project-card {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      width: 100%;
+      max-width: 300px;
+      padding: 10px;
+      border-radius: 5px;
+      transition: transform 0.3s ease; /* pequeña animación */
+    }
+    .project-card:hover {
+      transform: scale(1.02); /* agranda ligeramente al pasar el mouse */
+    }
+    .project-card img {
+      display: block;
+      margin: 0 auto 10px auto;
+      max-width: 100%;
+      border-radius: 5px;
+    }
+    .project-card h3 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .project-card p {
+      margin-bottom: 8px;
+    }
+
+    /* ------------- TABLA PARA TECNOLOGÍAS ------------- */
+    table {
+      border-collapse: collapse;
+      margin: 10px 0;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid #999;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #eee;
+    }
+
+    /* ------------- FORMULARIO CONTACTO (EJEMPLO) ------------- */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 400px;
+    }
+    label {
+      font-weight: bold;
+    }
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-family: inherit;
+    }
+    button {
+      background-color: #b5651d; /* marrón */
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      padding: 10px;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #8d4b15; /* un tono más oscuro */
+    }
+
+    /* ------------- FOOTER ------------- */
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9rem;
+    }
+
+    /* ------------- RESPONSIVE ------------- */
+    @media (max-width: 600px) {
+      .main-menu {
+        flex-direction: column;
+        align-items: center;
+      }
+      .project-list {
+        flex-direction: column;
+        align-items: center;
+      }
+    }

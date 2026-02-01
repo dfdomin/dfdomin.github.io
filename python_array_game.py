@@ -12,8 +12,8 @@ import random
 import sys
 
 
-def clear_screen():
-    """Print newlines to simulate clearing the screen"""
+def add_spacing():
+    """Add spacing between sections for better readability"""
     print("\n" * 2)
 
 
@@ -123,9 +123,22 @@ def ask_max_question():
 
 def ask_index_question():
     """Ask a question about index()"""
+    # Generate array and ensure we pick a unique value for the question
     arr = generate_random_array()
-    # Pick a random element that exists in the array
-    element = random.choice(arr)
+    
+    # Get unique values from the array
+    unique_values = []
+    seen_indices = set()
+    for i, val in enumerate(arr):
+        if val not in [arr[j] for j in seen_indices]:
+            unique_values.append(val)
+            seen_indices.add(i)
+    
+    # If we have unique values, pick one; otherwise use any element
+    if unique_values:
+        element = random.choice(unique_values)
+    else:
+        element = random.choice(arr)
     
     print(f"\nArray: {print_array(arr)}")
     print(f"\n¿En qué posición (índice) se encuentra el valor {element}?")
@@ -180,7 +193,7 @@ def play_game():
     total_questions = len(question_functions)
     
     for i, (func_name, question_func) in enumerate(question_functions, 1):
-        clear_screen()
+        add_spacing()
         print_separator()
         print(f"  PREGUNTA {i} de {total_questions} - Función: {func_name}")
         print_separator()
@@ -194,7 +207,7 @@ def play_game():
             input("\nPresiona Enter para la siguiente pregunta...")
     
     # Final results
-    clear_screen()
+    add_spacing()
     print_separator()
     print("           RESULTADOS FINALES")
     print_separator()
@@ -231,11 +244,11 @@ def show_menu():
         if choice == "1":
             play_game()
             input("\n\nPresiona Enter para volver al menú...")
-            clear_screen()
+            add_spacing()
         elif choice == "2":
             show_help()
             input("\n\nPresiona Enter para volver al menú...")
-            clear_screen()
+            add_spacing()
         elif choice == "3":
             print("\n¡Gracias por jugar! ¡Hasta luego!")
             print_separator()
@@ -246,7 +259,7 @@ def show_menu():
 
 def show_help():
     """Display help about array functions"""
-    clear_screen()
+    add_spacing()
     print_separator()
     print("           AYUDA - FUNCIONES DE ARRAYS")
     print_separator()
@@ -278,7 +291,7 @@ def show_help():
 def main():
     """Entry point of the program"""
     try:
-        clear_screen()
+        add_spacing()
         show_menu()
     except KeyboardInterrupt:
         print("\n\n¡Juego interrumpido! ¡Hasta luego!")
